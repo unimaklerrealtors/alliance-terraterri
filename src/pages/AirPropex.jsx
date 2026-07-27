@@ -468,7 +468,7 @@ const AirPropex = () => {
                   <div className="cites_expos">
                     {' '}
                     <img src="/assets/images/hyderbad-nw.png" alt="expo" width={290} />
-                    <h4>Hyderabad</h4>
+                    <h4>New York</h4>
                   </div>
                 </div>
                 <div className="col">

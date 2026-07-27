@@ -557,7 +557,7 @@ const Registration = () => {
                                         Discover Your Dream Property at{" "}
                                     </h4>
                                     <h1 className="wow fadeScale text-center">
-                                        <span className="loct_ot">{expoData.expoCity}</span> <br />
+                                        <span className="loct_ot">New York</span> <br />
                                     </h1>
                                     <h2 className="bannerTypeTitle">
                                         {expoData?.expoType === "International"
@@ -670,7 +670,7 @@ const Registration = () => {
                                         <div className="row justify-content-center text-center mt-1 mb-1">
                                             <div className="col-12 pt-0">
                                                 <p className="res_ot text-uppercase mb-1">
-                                                    {expoData.expoTypeName} EXPO @ {expoData.city_name}
+                                                    {expoData.expoTypeName} EXPO @ New York
                                                 </p>
                                             </div>
                                             {/* <div className="coll">
@@ -936,7 +936,7 @@ const Registration = () => {
                                     <div className="row justify-content-center text-center mt-1 mb-1">
                                         <div className="col-12 pt-0">
                                             <p className="res_ot text-uppercase mb-1">
-                                                {expoData.expoTypeName} EXPO @ {expoData.city_name}
+                                                {expoData.expoTypeName} EXPO @ New York
                                             </p>
                                         </div>
                                         <div className="coll">
