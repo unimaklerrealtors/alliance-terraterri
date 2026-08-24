@@ -1,4 +1,5 @@
 import React from "react";
+import { environment } from "../utils/environment";
 import { Carousel } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 
@@ -91,7 +92,7 @@ const WhyExhibt = () => {
                   <img src="assets/images/whyEx.jpg" alt="image" width={600}
                     height={300} />
                   <div className="imageLineC"></div>
-                  <Link to={`https://builderalliance.terraterri.com`}>   <button>Book Your Stall</button></Link>
+                  <Link to={environment.builderAllianceUrl}>   <button>Book Your Stall</button></Link>
 
 
                 </div>

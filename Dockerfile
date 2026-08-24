@@ -12,6 +12,8 @@ ARG VITE_MASTERS_ENDPOINT=https://micro-api-three.terraterri.com
 ARG VITE_WEBSITE_ENDPOINT=https://nodeapi.terraterri.com
 ARG VITE_EXPO_ENDPOINT=https://expoadminapi.terraterri.com
 ARG VITE_BASE_URL=https://alliance.terraterri.com
+ARG VITE_BUILDER_ALLIANCE_URL=https://builderalliance.terraterri.com
+ARG VITE_BUILDER_ADMIN_URL=https://builder.admin.terraterri.com
 
 # Write the values into .env.production, which Vite unambiguously loads for
 # `vite build` (mode=production). Relying on process.env alone did not take effect

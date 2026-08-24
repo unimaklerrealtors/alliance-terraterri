@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { environment } from "../utils/environment";
 import { Link } from "react-router-dom";
 import { Navbar, Nav, NavDropdown, Container, Offcanvas } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -38,7 +39,7 @@ const Header = () => {
                 <Link className="nav-link" to={"/whyVisit"}>Why Visit</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to={`https://builderalliance.terraterri.com`}>Book Your Stall</Link>
+                <Link className="nav-link" to={environment.builderAllianceUrl}>Book Your Stall</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to={"/registration?expoCode=INHYD14JUL26-R"}>Expo Registration</Link>
@@ -98,7 +99,7 @@ const Header = () => {
               <Link className="nav-link" to={"/whyVisit"} onClick={() => setShow(false)}>Why Visit</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to={`https://builder.admin.terraterri.com`} onClick={() => setShow(false)}>Book Your Stall</Link>
+              <Link className="nav-link" to={environment.builderAdminUrl} onClick={() => setShow(false)}>Book Your Stall</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to={"/registration?expoCode=INHYD14JUL26-R"} onClick={() => setShow(false)}>Expo Registration</Link>
