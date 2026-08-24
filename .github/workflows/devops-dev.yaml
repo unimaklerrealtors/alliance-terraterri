@@ -48,6 +48,8 @@ jobs:
             --build-arg "VITE_WEBSITE_ENDPOINT=${{ steps.u.outputs.node }}" \
             --build-arg "VITE_EXPO_ENDPOINT=${{ steps.u.outputs.expoadmin }}" \
             --build-arg "VITE_BASE_URL=${{ steps.u.outputs.self }}" \
+            --build-arg "VITE_BUILDER_ALLIANCE_URL=https://dev.builderalliance.terraterri.com" \
+            --build-arg "VITE_BUILDER_ADMIN_URL=https://dev.builder.admin.terraterri.com" \
             .
           docker push "${AR}/${IMAGE}"
 

@@ -26,6 +26,8 @@ RUN { \
       echo "VITE_WEBSITE_ENDPOINT=$VITE_WEBSITE_ENDPOINT"; \
       echo "VITE_EXPO_ENDPOINT=$VITE_EXPO_ENDPOINT"; \
       echo "VITE_BASE_URL=$VITE_BASE_URL"; \
+      echo "VITE_BUILDER_ALLIANCE_URL=$VITE_BUILDER_ALLIANCE_URL"; \
+      echo "VITE_BUILDER_ADMIN_URL=$VITE_BUILDER_ADMIN_URL"; \
     } > .env.production \
  && echo "--- .env.production used for this build ---" \
  && cat .env.production
