@@ -12,14 +12,28 @@ ARG VITE_MASTERS_ENDPOINT=https://micro-api-three.terraterri.com
 ARG VITE_WEBSITE_ENDPOINT=https://nodeapi.terraterri.com
 ARG VITE_EXPO_ENDPOINT=https://expoadminapi.terraterri.com
 ARG VITE_BASE_URL=https://alliance.terraterri.com
-ENV VITE_USER_ENDPOINT=$VITE_USER_ENDPOINT
-ENV VITE_SERVICES_ENDPOINT=$VITE_SERVICES_ENDPOINT
-ENV VITE_MASTERS_ENDPOINT=$VITE_MASTERS_ENDPOINT
-ENV VITE_WEBSITE_ENDPOINT=$VITE_WEBSITE_ENDPOINT
-ENV VITE_EXPO_ENDPOINT=$VITE_EXPO_ENDPOINT
-ENV VITE_BASE_URL=$VITE_BASE_URL
+
+# Write the values into .env.production, which Vite unambiguously loads for
+# `vite build` (mode=production). Relying on process.env alone did not take effect
+# in this repo: every import.meta.env.VITE_* compiled to `undefined`, so axios got
+# baseURL "undefined" and calls hit our own origin (blank Registration page).
+RUN { \
+      echo "VITE_USER_ENDPOINT=$VITE_USER_ENDPOINT"; \
+      echo "VITE_SERVICES_ENDPOINT=$VITE_SERVICES_ENDPOINT"; \
+      echo "VITE_MASTERS_ENDPOINT=$VITE_MASTERS_ENDPOINT"; \
+      echo "VITE_WEBSITE_ENDPOINT=$VITE_WEBSITE_ENDPOINT"; \
+      echo "VITE_EXPO_ENDPOINT=$VITE_EXPO_ENDPOINT"; \
+      echo "VITE_BASE_URL=$VITE_BASE_URL"; \
+    } > .env.production \
+ && echo "--- .env.production used for this build ---" \
+ && cat .env.production
 
 RUN npm run build
+
+# Fail the build if the API host never reached the bundle, instead of silently
+# shipping a UI whose requests go to its own origin.
+RUN grep -rq "expoadminapi" dist/assets/ \
+ || (echo "ERROR: VITE_EXPO_ENDPOINT did not reach the bundle" && exit 1)
 
 FROM nginx:alpine
 COPY --from=builder /app/dist /usr/share/nginx/html
