@@ -38,7 +38,7 @@ const Header = () => {
                 <Link className="nav-link" to={"/whyVisit"}>Why Visit</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to={`https://builderalliance.terraterri.com`}>Book Your Stall</Link>
+                <Link className="nav-link" to={`https://builder.admin.terraterri.com/`} target="_blank">Book Your Stall</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to={"/registration?expoCode=INHYD14JUL26-R"}>Expo Registration</Link>
